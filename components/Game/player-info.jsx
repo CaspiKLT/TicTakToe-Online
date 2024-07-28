@@ -23,7 +23,7 @@ export function PlayerInfo({ player, isTimerRunning }) {
         clearInterval(interval);
         setGameState((lastGameState) => ({
           ...lastGameState,
-          seconds: 60,
+          seconds: lastGameState.seconds === 0 ? 60 : lastGameState.seconds,
         }));
       };
     }
@@ -36,7 +36,11 @@ export function PlayerInfo({ player, isTimerRunning }) {
   );
   const timerClassName = clsx(
     "text-xl",
-    isDanger ? "text-red-600" : "text-slate-900",
+    isDanger
+      ? "text-red-600"
+      : isTimerRunning
+        ? "text-slate-900"
+        : "text-slate-400",
   );
 
   return (

@@ -34,7 +34,7 @@ export const player_3 = {
   rating: 100,
   pfp: pfpSrc,
   symbol: GAME_SYMBOLS.Z,
-  color: "violet-600",
+  color: "purple-600",
 };
 export const player_4 = {
   username: "Anatoliy",

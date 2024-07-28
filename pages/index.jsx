@@ -15,7 +15,7 @@ export default function HomePage() {
     NEXT_SYMBOL,
     handleCellClick,
     resetClick,
-    seconds,
+    winner,
   } = useGameState();
 
   return (
@@ -48,7 +48,7 @@ export default function HomePage() {
           reset={resetClick}
           click={handleCellClick}
           arr={cells}
-          seconds={seconds}
+          winner={winner}
         />
       </main>
     </div>

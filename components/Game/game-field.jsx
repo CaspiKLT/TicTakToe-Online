@@ -13,7 +13,7 @@ export function GameField({
   reset,
   click,
   arr,
-  seconds,
+  winner,
 }) {
   return (
     <GameFieldLayout className={className}>
@@ -24,7 +24,7 @@ export function GameField({
             variant="primary"
             onClick={() => {
               {
-                reset({ arr, current, seconds });
+                reset({ arr, current });
               }
             }}
           >
@@ -44,6 +44,11 @@ export function GameField({
                 click(i);
               }
             }}
+            style={
+              winner && [...winner].includes(i)
+                ? "bg-yellow-400 hover:bg-yellow-200"
+                : "bg-white"
+            }
           >
             {symbol && <GameSymbol symbol={symbol} />}
           </GameCell>
