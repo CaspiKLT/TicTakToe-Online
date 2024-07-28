@@ -9,9 +9,9 @@ export function useGameState() {
   // const [seconds, setSeconds] = useState(60);
 
   const [{ cells, currentSymbol, seconds }, setGameState] = useState(() => ({
-  cells: new Array(19 * 19).fill(null),
-  currentSymbol: GAME_SYMBOLS.O,
-  seconds: 60,
+    cells: new Array(19 * 19).fill(null),
+    currentSymbol: GAME_SYMBOLS.O,
+    seconds: 60,
   }));
 
   const NEXT_SYMBOL = getNextSymbol(currentSymbol);
@@ -29,7 +29,7 @@ export function useGameState() {
       }));
   };
 
-  const resetClick = ({cells, currentSymbol, seconds}) => {
+  const resetClick = ({ cells, currentSymbol, seconds }) => {
     setGameState((lastGameState) => ({
       ...lastGameState,
       cells: new Array(19 * 19).fill(null),
@@ -47,6 +47,6 @@ export function useGameState() {
     resetClick,
     seconds,
     minutesString,
-    secondsString
+    secondsString,
   };
 }
