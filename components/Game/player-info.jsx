@@ -33,6 +33,9 @@ export function PlayerInfo({ player, isTimerRunning, isWinner }) {
   const className = clsx(
     "grid grid-cols-2 m-4 relative",
     `text-${player.color}`,
+    isWinner === player.symbol
+      ? "border border-yellow-400 p-4 rounded-md bg-yellow-100"
+      : "",
   );
   const timerClassName = clsx(
     "text-xl",

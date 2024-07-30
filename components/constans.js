@@ -41,6 +41,6 @@ export const PLAYERS = [
     rating: 100,
     pfp: pfpSrc,
     symbol: GAME_SYMBOLS.H,
-    color: "yellow-600",
+    color: "blue-600",
   },
 ];

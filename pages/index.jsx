@@ -9,7 +9,6 @@ export default function HomePage() {
     cells,
     currentSymbol,
     NEXT_SYMBOL,
-    PREV_SYMBOL,
     handleCellClick,
     resetClick,
     winner,
@@ -23,7 +22,7 @@ export default function HomePage() {
         <GameInfo
           playersAmount={players}
           currentSymbol={currentSymbol}
-          winnerSymbol={winner !== undefined ? PREV_SYMBOL : null}
+          winnerSymbol={winner !== undefined ? winner.winnerMove : null}
         />
         <GameField
           className={"bg-white mb-8 max-w-[616px] self-center"}
