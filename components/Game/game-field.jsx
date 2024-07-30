@@ -18,9 +18,23 @@ export function GameField({
   return (
     <GameFieldLayout className={className}>
       {winner && winner.winnerMove ? (
-        <p className="flex w-full justify-center gap-2 text-2xl font-bold">
-          The winner is <span>{<GameSymbol symbol={winner.winnerMove} />}</span>
-        </p>
+        <div className="flex w-full flex-col justify-center items-center gap-2 transition-all">
+          <p className="flex w-full justify-center gap-2 text-2xl font-bold">
+            The winner is{" "}
+            <span>{<GameSymbol symbol={winner.winnerMove} />}</span>
+          </p>
+          <UiButton
+            size="md"
+            variant="primary"
+            onClick={() => {
+              {
+                reset({ arr, current });
+              }
+            }}
+          >
+            Reset
+          </UiButton>
+        </div>
       ) : (
         <GameMovesInfo current={current} next={nextSymbol}>
           <GameActions>
