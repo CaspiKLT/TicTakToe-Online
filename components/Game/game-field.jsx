@@ -17,24 +17,30 @@ export function GameField({
 }) {
   return (
     <GameFieldLayout className={className}>
-      <GameMovesInfo current={current} next={nextSymbol}>
-        <GameActions>
-          <UiButton
-            size="md"
-            variant="primary"
-            onClick={() => {
-              {
-                reset({ arr, current });
-              }
-            }}
-          >
-            Reset
-          </UiButton>
-          <UiButton size="md" variant="outline">
-            Give up
-          </UiButton>
-        </GameActions>
-      </GameMovesInfo>
+      {winner && winner.winnerMove ? (
+        <p className="flex w-full justify-center gap-2 text-2xl font-bold">
+          The winner is <span>{<GameSymbol symbol={winner.winnerMove} />}</span>
+        </p>
+      ) : (
+        <GameMovesInfo current={current} next={nextSymbol}>
+          <GameActions>
+            <UiButton
+              size="md"
+              variant="primary"
+              onClick={() => {
+                {
+                  reset({ arr, current });
+                }
+              }}
+            >
+              Reset
+            </UiButton>
+            <UiButton size="md" variant="outline">
+              Give up
+            </UiButton>
+          </GameActions>
+        </GameMovesInfo>
+      )}
       <GameFieldGrid>
         {arr.map((symbol, i) => (
           <GameCell

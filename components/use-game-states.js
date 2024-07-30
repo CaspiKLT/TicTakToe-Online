@@ -9,7 +9,7 @@ export function useGameState() {
     seconds: 60,
   }));
 
-  const players = 4;
+  const players = 2;
   const NEXT_SYMBOL = getNextSymbol(currentSymbol, players);
   const PREV_SYMBOL = getPrevSymbol(currentSymbol, players);
   const minutesString = String(Math.floor(seconds / 60)).padStart(2, "0");

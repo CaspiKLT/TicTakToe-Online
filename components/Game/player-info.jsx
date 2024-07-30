@@ -11,7 +11,7 @@ export function PlayerInfo({ player, isTimerRunning, isWinner }) {
   const isDanger = seconds < 10;
 
   useEffect(() => {
-    if (isTimerRunning) {
+    if (isTimerRunning && !isWinner) {
       const interval = setInterval(() => {
         setGameState((lastGameState) => ({
           ...lastGameState,
@@ -31,11 +31,12 @@ export function PlayerInfo({ player, isTimerRunning, isWinner }) {
   }, [isTimerRunning]);
 
   const className = clsx(
-    "grid grid-cols-2 m-4 relative",
+    "grid grid-cols-2 m-4 relative transition-colors",
     `text-${player.color}`,
     isWinner === player.symbol
       ? "border border-yellow-400 p-4 rounded-md bg-yellow-100"
       : "",
+    isWinner && isWinner !== player.symbol ? "text-slate-200" : "",
   );
   const timerClassName = clsx(
     "text-xl",
