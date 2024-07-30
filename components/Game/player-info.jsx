@@ -4,7 +4,7 @@ import { GameSymbol } from "./game-symbol";
 import { useGameState } from "../use-game-states";
 import clsx from "clsx";
 
-export function PlayerInfo({ player, isTimerRunning }) {
+export function PlayerInfo({ player, isTimerRunning, isWinner }) {
   const { seconds, setGameState, minutesString, secondsString } =
     useGameState();
 

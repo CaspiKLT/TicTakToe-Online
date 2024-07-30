@@ -1,18 +1,15 @@
 import { Header } from "../components/Header/header";
-import {
-  GameInfo,
-  GameTitle,
-  GameField,
-  PlayerInfo,
-} from "../components/Game/index";
-import { player_1, player_2, player_3, player_4 } from "../components/constans";
+import { GameInfo, GameTitle, GameField } from "../components/Game/index";
 import { useGameState } from "../components/use-game-states";
+import { PLAYERS } from "../components/constans";
 
 export default function HomePage() {
   const {
+    players,
     cells,
     currentSymbol,
     NEXT_SYMBOL,
+    PREV_SYMBOL,
     handleCellClick,
     resetClick,
     winner,
@@ -20,27 +17,14 @@ export default function HomePage() {
 
   return (
     <div className="bg-slate-100 min-h-screen">
-      <Header player={player_1} />
+      <Header player={PLAYERS[0]} />
       <main className="max-w-[616px] pt-6 flex flex-col mx-auto gap-10">
-        <GameTitle playersAmount={4} timeForTurn={1} className={"ml-2"} />
-        <GameInfo>
-          <PlayerInfo
-            player={player_1}
-            isTimerRunning={player_1.symbol === currentSymbol}
-          />
-          <PlayerInfo
-            player={player_2}
-            isTimerRunning={player_2.symbol === currentSymbol}
-          />
-          <PlayerInfo
-            player={player_3}
-            isTimerRunning={player_3.symbol === currentSymbol}
-          />
-          <PlayerInfo
-            player={player_4}
-            isTimerRunning={player_4.symbol === currentSymbol}
-          />
-        </GameInfo>
+        <GameTitle playersAmount={players} timeForTurn={1} className={"ml-2"} />
+        <GameInfo
+          playersAmount={players}
+          currentSymbol={currentSymbol}
+          winnerSymbol={winner !== undefined ? PREV_SYMBOL : null}
+        />
         <GameField
           className={"bg-white mb-8 max-w-[616px] self-center"}
           current={currentSymbol}

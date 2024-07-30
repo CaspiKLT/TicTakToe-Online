@@ -45,7 +45,7 @@ export function GameField({
               }
             }}
             style={
-              winner && [...winner].includes(i)
+              winner && [...winner.winnerIndexs].includes(i)
                 ? "bg-yellow-400 hover:bg-yellow-200"
                 : "bg-white"
             }
